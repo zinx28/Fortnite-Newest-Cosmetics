@@ -1,0 +1,19 @@
+{
+  "name": "profilemaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zinx-YT/Newest-Profile.git"
+  },
+  "author": "zinx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zinx-YT/Newest-Profile/issues"
+  },
+  "homepage": "https://github.com/zinx-YT/Newest-Profile#readme"
+}
