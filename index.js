@@ -6,9 +6,10 @@ const readline = require('readline').createInterface({
 	input: process.stdin,
 	output: process.stdout
 });
-console.log("Welcome! This will grab the newest/All cosmetics\nType:\n1 -- Grab all the newest cosmetics\n")
-console.log("2 -- This has been disabled atm\n")
+console.log("Welcome! This will grab the newest/All cosmetics\nType:\n1 -- Grab all the newest cosmetics")
+console.log("2 -- This has been disabled atm")
 readline.question('', athena => {
+	console.log("\n")
 	if (athena == "1") {
 		var authRequest = {
 
