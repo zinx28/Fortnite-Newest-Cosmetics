@@ -6,7 +6,8 @@ const readline = require('readline').createInterface({
 	input: process.stdin,
 	output: process.stdout
 });
-console.log("Welcome to this profile maker \n1 -- make a athena file with all the newest skins")
+console.log("Welcome! This will grab the newest/All cosmetics\nType:\n1 -- Grab all the newest cosmetics\n")
+console.log("\n2 -- This has been disabled atm\n")
 readline.question('', athena => {
 	if (athena == "1") {
 		var authRequest = {
