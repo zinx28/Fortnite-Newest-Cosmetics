@@ -1,5 +1,6 @@
 # Newest-Profile
 This will be updated every update
+btw i only update the readme and the code not the .json files
 <br><br>
 Profile == 19.40
 
