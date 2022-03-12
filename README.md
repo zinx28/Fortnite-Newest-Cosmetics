@@ -30,6 +30,7 @@ AthenaDance:EID_Journey
 AthenaDance:EID_Thrive
 AthenaEmoji:Emoji_S19_BlizzardBomber
 AthenaEmoji:Emoji_S19_FNCS_AnimatedBeep
+AthenaGlider:Glider_ID_347_PeachMale
 AthenaGlider:Glider_ID_352_ThriveFemale
 AthenaGlider:Glider_ID_353_ThriveSpiritFemale
 AthenaLoadingScreen:LSID_405_FNCS_Iris
