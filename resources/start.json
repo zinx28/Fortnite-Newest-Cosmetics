@@ -1,0 +1,213 @@
+{
+  "_id": "",
+  "created": "2022-01-08T22:58:06.983Z",
+  "updated": "2022-01-08T22:58:57.261Z",
+  "rvn": 24,
+  "wipeNumber": 1,
+  "accountId": "",
+  "profileId": "athena",
+  "version": "FortniteProfile",
+  "items": {
+    "sandbox_loadout": {
+      "templateId": "CosmeticLocker:cosmeticlocker_athena",
+      "attributes": {
+        "locker_slots_data": {
+          "slots": {
+            "Pickaxe": {
+              "items": [
+                "AthenaPickaxe:DefaultPickaxe"
+              ],
+              "activeVariants": []
+            },
+            "Dance": {
+              "items": [
+                "AthenaDance:EID_BoogieDown",
+                "AthenaDance:EID_DanceMoves",
+                "",
+                "",
+                "",
+                ""
+              ]
+            },
+            "Glider": {
+              "items": [
+                "AthenaGlider:DefaultGlider"
+              ]
+            },
+            "Character": {
+              "items": [
+                "AthenaCharacter:CID_001_Athena_Commando_F_Default"
+              ],
+              "activeVariants": [
+                {
+                  "variants": []
+                }
+              ]
+            },
+            "Backpack": {
+              "items": [
+                ""
+              ],
+              "activeVariants": [
+                {
+                  "variants": []
+                }
+              ]
+            },
+            "ItemWrap": {
+              "items": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              "activeVariants": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            },
+            "LoadingScreen": {
+              "items": [
+                ""
+              ],
+              "activeVariants": [
+                null
+              ]
+            },
+            "MusicPack": {
+              "items": [
+                ""
+              ],
+              "activeVariants": [
+                null
+              ]
+            },
+            "SkyDiveContrail": {
+              "items": [
+                ""
+              ],
+              "activeVariants": [
+                null
+              ]
+            }
+          }
+        },
+        "use_count": 1,
+        "banner_icon_template": "",
+        "locker_name": "",
+        "banner_color_template": "",
+        "item_seen": false,
+        "favorite": false
+      },
+      "quantity": 1
+    },
+    "loadout_1_loadout": {
+      "templateId": "CosmeticLocker:cosmeticlocker_athena",
+      "attributes": {
+        "locker_slots_data": {
+          "slots": {
+            "Pickaxe": {
+              "items": [
+                ""
+              ],
+              "activeVariants": []
+            },
+            "Dance": {
+              "items": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ]
+            },
+            "Glider": {
+              "items": [
+                ""
+              ]
+            },
+            "Character": {
+              "items": [
+                ""
+              ],
+              "activeVariants": [
+                {
+                  "variants": []
+                }
+              ]
+            },
+            "Backpack": {
+              "items": [
+                ""
+              ],
+              "activeVariants": [
+                {
+                  "variants": []
+                }
+              ]
+            },
+            "ItemWrap": {
+              "items": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              "activeVariants": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            },
+            "LoadingScreen": {
+              "items": [
+                ""
+              ],
+              "activeVariants": [
+                null
+              ]
+            },
+            "MusicPack": {
+              "items": [
+                ""
+              ],
+              "activeVariants": [
+                null
+              ]
+            },
+            "SkyDiveContrail": {
+              "items": [
+                ""
+              ],
+              "activeVariants": [
+                null
+              ]
+            }
+          }
+        },
+        "use_count": 1,
+        "banner_icon_template": "",
+        "locker_name": "UWU",
+        "banner_color_template": "",
+        "item_seen": false,
+        "favorite": false
+      },
+      "quantity": 1
+    
+	
