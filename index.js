@@ -20,7 +20,7 @@ readline.question('', athena => {
 			},
 		};
 		request(authRequest, function (error, response) {
-			console.log("Making temp file\n")
+			console.log("\nMaking temp file\n")
 			fs.writeFile(path.join(__dirname, "athena_temp.json"), response.body, 'utf8', (err) => {
 				const NewestCos = JSON.parse(response.body);
 				const athena_temp = require("./athena_temp.json")
@@ -53,7 +53,7 @@ readline.question('', athena => {
 
 					console.log(id2)
 				}
-				console.log("n\Making Profile File")
+				console.log("Making Profile File")
 				var TEST = fs.createWriteStream("newest-cosmetics.json");
 				//stream.once('open', function(fd) {
 				//	fs.readFileSync
@@ -78,7 +78,7 @@ readline.question('', athena => {
 					  TEST.write(test69);
 				})
 				TEST.write(end);
-				console.log("n\Done Making Profile File")
+				console.log("\nDone Making Profile File")
 				console.log("\nDeleting Temp File")
 				fs.unlinkSync('athena_temp.json', function (err) {
 					if(err){
