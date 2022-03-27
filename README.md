@@ -5,6 +5,7 @@ btw i only update the readme and the code not the .json files
 Profile == 20.00
 
 ```
+AthenaBackpack:BID_959_LurkFemale
 AthenaBackpack:BID_968_MysticBookMale
 AthenaBackpack:BID_969_CyberArmor
 AthenaBackpack:BID_970_OrderGuard
@@ -12,6 +13,8 @@ AthenaBackpack:BID_971_Cadet
 AthenaBackpack:BID_972_KnightCat_Female
 AthenaBackpack:BID_973_OriginPrisonMale
 AthenaBackpack:BID_974_Binary
+AthenaBackpack:BID_977_SnowfallFemale_VRIU0
+AthenaCharacter:CID_A_358_Athena_Commando_F_Lurk
 AthenaCharacter:CID_A_367_Athena_Commando_M_Mystic
 AthenaCharacter:CID_A_368_Athena_Commando_M_Sienna
 AthenaCharacter:CID_A_369_Athena_Commando_F_CyberArmor
@@ -20,6 +23,7 @@ AthenaCharacter:CID_A_371_Athena_Commando_F_Cadet
 AthenaCharacter:CID_A_372_Athena_Commando_F_KnightCat
 AthenaCharacter:CID_A_373_Athena_Commando_M_OriginPrisoner
 AthenaCharacter:CID_A_374_Athena_Commando_F_Binary
+AthenaCharacter:CID_A_375_Athena_Commando_F_Snowfall_WXW2T
 AthenaCharacter:CID_NPC_Athena_Commando_F_PrimeOrder
 AthenaCharacter:CID_NPC_Athena_Commando_M_Masterkey
 AthenaCharacter:CID_NPC_Athena_Commando_M_PrimeOrder
@@ -33,6 +37,7 @@ AthenaDance:EID_OriginPrisoner
 AthenaDance:EID_RespectThePeace_RemovePartyRift
 AthenaDance:EID_Sienna
 AthenaDance:EID_Snap_DeployPartyRift
+AthenaDance:EID_Snowfall_H6LU9
 AthenaEmoji:Emoji_S20_BunnyBrawl
 AthenaEmoji:Emoji_S20_CactusDancer
 AthenaEmoji:Emoji_S20_Cadet
@@ -53,6 +58,7 @@ AthenaGlider:Glider_ID_358_KnightCatFemale
 AthenaGlider:Glider_ID_360_MysticMale
 AthenaGlider:Glider_ID_361_OrderGuardMale
 AthenaGlider:Glider_ID_362_SiennaMale
+AthenaGlider:Glider_ID_363_SnowfallFemale
 AthenaLoadingScreen:LSID_408_SCRN_S2RebelsKeyArt
 AthenaLoadingScreen:LSID_409_InnovatorKey
 AthenaLoadingScreen:LSID_410_Cadet
@@ -65,10 +71,13 @@ AthenaLoadingScreen:LSID_416_Mystic
 AthenaLoadingScreen:LSID_417_S20_BattleBus
 AthenaLoadingScreen:LSID_418_S20_Drill
 AthenaLoadingScreen:LSID_419_S20_AllOutWar
+AthenaLoadingScreen:LSID_420_SCRN_Snowfall
+AthenaLoadingScreen:LSID_422_TacticalBR_Reward1
 AthenaLoadingScreen:LSID_423_Binary
 AthenaMusicPack:MusicPack_127_Cadet
 AthenaMusicPack:MusicPack_128_CubeKing
 AthenaMusicPack:MusicPack_129_OrderGuard
+AthenaPickaxe:Pickaxe_ID_762_LurkFemale
 AthenaPickaxe:Pickaxe_ID_766_BinaryFemale
 AthenaPickaxe:Pickaxe_ID_767_CadetFemale
 AthenaPickaxe:Pickaxe_ID_768_CyberArmorFemale
@@ -76,6 +85,7 @@ AthenaPickaxe:Pickaxe_ID_770_KnightCatFemale
 AthenaPickaxe:Pickaxe_ID_772_MysticMale
 AthenaPickaxe:Pickaxe_ID_773_OrderGuardMale
 AthenaPickaxe:Pickaxe_ID_774_SiennaMale
+AthenaPickaxe:Pickaxe_ID_775_SnowfallFemale
 AthenaPickaxe:Pickaxe_ID_776_TheOriginMale
 AthenaSpray:SPID_362_Binary
 AthenaSpray:SPID_363_Cadet
@@ -102,4 +112,5 @@ AthenaItemWrap:Wrap_454_CyberArmor
 AthenaItemWrap:Wrap_455_KnightCat
 AthenaItemWrap:Wrap_456_OriginPrison
 AthenaItemWrap:Wrap_457_Binary
+AthenaItemWrap:Wrap_459_MilitaryFashionCamo
 ```
