@@ -68,15 +68,16 @@ readline.question('', athena => {
 					}
 				//	console.log(athena1)
 					if (athena1.includes("y") || athena1.includes("n")) {
+						readline1.close();
 						console.log("\n")
 						console.log("Making Profile File")
 
-						var TEST = fs.createWriteStream("newest-cosmetics.json");
+						var writeStream = fs.createWriteStream("newest-cosmetics.json");
 						//stream.once('open', function(fd) {
 						//	fs.readFileSync
 						const start = fs.readFileSync("./resources/start.json")
 						const end = fs.readFileSync("./resources/end.json")
-						TEST.write(start);
+						writeStream.write(start);
 						fs.writeFileSync('./athena_temp.json', JSON.stringify(NewestCos['data']['items'], null, 2));
 						NewestCos['data']['items'].forEach(async (playlist, i) => {
 							//	console.log(playlist['variants'][0]['channel'])
@@ -89,7 +90,7 @@ readline.question('', athena => {
 							  "level": 1,
 							  "max_level_bonus": 0,
 							  "rnd_sel_cnt": 0, `
-							TEST.write(test69)
+							//TEST.write(test69)
 							if (playlist['variants'] == null) {
 								var test692 = `
 							"variants": [],`
@@ -103,22 +104,35 @@ readline.question('', athena => {
 								  }
 							  ],`
 
-								TEST.write(test692)
+								//TEST.write(test692)
 							}
 							// "variants": [],
 							var test693 = `
 							  "xp": 0
 							  },
 							  "templateId": "${playlist['type']['backendValue']}:${playlist['id']}"`
-							TEST.write(test693);
+							writeStream.write(test69 + test692 + test693);
 						})
-						TEST.write(end);
-						console.log("\nDone Making Profile File")
-						console.log("\nDeleting Temp File")
-						fs.unlinkSync('athena_temp.json', function (err) {
-							if (err) {
+						
+						writeStream.write(end)
+						writeStream.end();
+						console.log("\nMaking newest-cosmetics.json")
+						fs.writeFile(path.join(__dirname, "newest-cosmetics.json"), "{}", (err) => {
+						
+						console.log("\nMaking The file look better")
+						fs.writeFile(path.join(__dirname, "newest-cosmetics.json"), JSON.stringify(require("./newest-cosmetics.json"), null, 2), 'utf8', (err) => {
+							if(err){
 								console.log(err)
+							}else{
+								console.log("\nDone Making Profile File")
+								console.log("\nDeleting Temp File")
+								fs.unlinkSync('athena_temp.json', function (err) {
+									if (err) {
+										console.log(err)
+									}
+								})
 							}
+						})
 						})
 					} else {
 						console.log("Invaild Chose")
