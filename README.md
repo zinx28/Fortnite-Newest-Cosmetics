@@ -5,8 +5,10 @@ btw i only update the readme and the code not the .json files
 Profile == 20.10
 
 ```
+AthenaBackpack:BID_975_JourneyMentor_NFF9C
 AthenaBackpack:BID_981_VampireHunterFemale
 AthenaBackpack:BID_984_GnomeCandle
+AthenaCharacter:CID_A_376_Athena_Commando_F_JourneyMentor_66VFP
 AthenaCharacter:CID_A_379_Athena_Commando_F_VampireHunter
 AthenaDance:EID_Checkmate
 AthenaDance:EID_Checkmate_Owned
@@ -14,9 +16,15 @@ AthenaDance:EID_Checkmate_Owned_Follower
 AthenaDance:EID_Checkmate_Sync
 AthenaDance:EID_Checkmate_Sync_Follower
 AthenaDance:EID_Frontier
+AthenaDance:EID_JourneyMentor_X2D9N
 AthenaDance:EID_Traction
+AthenaEmoji:Emoji_S20_JourneyMentor
+AthenaGlider:Glider_ID_357_JourneyFemale
+AthenaLoadingScreen:LSID_421_SCRN_JourneyMentor
 AthenaLoadingScreen:LSID_425_POIBattle
+AthenaPickaxe:Pickaxe_ID_769_JourneyMentorFemale
 AthenaPickaxe:Pickaxe_ID_779_VampireHunterFemale1H
+AthenaSpray:SPID_366_JourneyMentor
 AthenaSpray:SPID_380_CollegeCup
 AthenaSpray:SPID_381_Windwalker
 AthenaSpray:SPID_382_UERaider
