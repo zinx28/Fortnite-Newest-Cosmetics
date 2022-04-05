@@ -1,8 +1,7 @@
 # Newest-Cosmetics
-This will be updated every update -- only main branch<br>
+This will be updated every update<br>
 btw i only update the readme and the code not the .json files
 <br><br>
-This is a dev branch so this shouldnt be updated
 Profile == 20.10
 
 ```
