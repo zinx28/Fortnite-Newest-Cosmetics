@@ -62,9 +62,9 @@ readline.question('', athena => {
 				readline1.question('', athena1 => {
 					var IsShown = false
 					if (athena1.includes("y")) {
-						var IsShown = true
-					} else {
 						var IsShown = false
+					} else {
+						var IsShown = true
 					}
 				//	console.log(athena1)
 					if (athena1.includes("y") || athena1.includes("n")) {
