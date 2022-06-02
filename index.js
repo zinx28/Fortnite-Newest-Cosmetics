@@ -29,7 +29,12 @@ readline.question('', athena => {
 				array = [];
 				for (const index of data2) {
 					const id = index['id']
-					const backendtype = index['type']['backendValue']
+					//const backendtype = index['type']['backendValue']
+					if (index['type']['backendValue'] == "AthenaSpray" || index['type']['backendValue'] == "AthenaEmoji" || index['type']['backendValue'] == "AthenaToy") {
+						var backendtype = "AthenaDance"
+					} else {
+						var backendtype = index['type']['backendValue']
+					}
 					const id2 = backendtype + ":" + id
 					//if(backendtype == "AthenaCharacter"){
 					//console.log(id2)
@@ -60,121 +65,91 @@ readline.question('', athena => {
 				});
 				console.log("Would you like them to be all marked as seen")
 				readline1.question('', athena1 => {
+					var IsShown = false
 					if (athena1.includes("y")) {
-				console.log("\n")
-				console.log("Making Profile File")
-					readline1.close();
-				var TEST = fs.createWriteStream("newest-cosmetics.json");
-				//stream.once('open', function(fd) {
-				//	fs.readFileSync
-				const start = fs.readFileSync("./resources/start.json")
-				const end = fs.readFileSync("./resources/end.json")
-				TEST.write(start);
-				fs.writeFileSync('./athena_temp.json', JSON.stringify(NewestCos['data']['items'], null, 2));
-				NewestCos['data']['items'].forEach(async (playlist, i) => {
-				//	console.log(playlist['variants'][0]['channel'])
-
-					var test69 = `},
-					"${playlist['type']['backendValue']}:${playlist['id']}": {
-						"attributes": {
-						  "favorite": false,
-						  "item_seen": true,
-						  "level": 1,
-						  "max_level_bonus": 0,
-						  "rnd_sel_cnt": 0, `
-						  TEST.write(test69)	  
-					if (playlist['variants'] == null) {
-						var test692 = `
-						"variants": [],`
+						var IsShown = true
 					} else {
-						var test692 = `
-						  "variants": [
-							  {
-								  "active": "${playlist['variants'][0]['options'][0]['tag']}",
-								  "channel": "${playlist['variants'][0]['channel']}",
-								  "owned": []
-							  }
-						  ],`
-
-						  TEST.write(test692)
+						var IsShown = false
 					}
-					// "variants": [],
-					var test693 = `
-						  "xp": 0
-						  },
-						  "templateId": "${playlist['type']['backendValue']}:${playlist['id']}"`
-					TEST.write(test693);
-				})
-				TEST.write(end);
-				console.log("\nDone Making Profile File")
-				console.log("\nDeleting Temp File")
-				fs.unlinkSync('athena_temp.json', function (err) {
-					if (err) {
-						console.log(err)
-					}
-				})
-				}else{
-								console.log("\n")
-				console.log("Making Profile File")
-					readline1.close();
-				var TEST = fs.createWriteStream("newest-cosmetics.json");
-				//stream.once('open', function(fd) {
-				//	fs.readFileSync
-				const start = fs.readFileSync("./resources/start.json")
-				const end = fs.readFileSync("./resources/end.json")
-				TEST.write(start);
-				fs.writeFileSync('./athena_temp.json', JSON.stringify(NewestCos['data']['items'], null, 2));
-				NewestCos['data']['items'].forEach(async (playlist, i) => {
-				//	console.log(playlist['variants'][0]['channel'])
+					//	console.log(athena1)
+					if (athena1.includes("y") || athena1.includes("n")) {
+						readline1.close();
+						console.log("\n")
+						console.log("Making Profile File")
 
-					var test69 = `},
-					"${playlist['type']['backendValue']}:${playlist['id']}": {
-						"attributes": {
-						  "favorite": false,
-						  "item_seen": false,
-						  "level": 1,
-						  "max_level_bonus": 0,
-						  "rnd_sel_cnt": 0, `
-						  TEST.write(test69)	  
-					if (playlist['variants'] == null) {
-						var test692 = `
-						"variants": [],`
+						var writeStream = fs.createWriteStream("newest-cosmetics.json");
+						//stream.once('open', function(fd) {
+						//	fs.readFileSync
+						const start = fs.readFileSync("./resources/start.json")
+						const end = fs.readFileSync("./resources/end.json")
+						writeStream.write(start);
+						fs.writeFileSync('./athena_temp.json', JSON.stringify(NewestCos['data']['items'], null, 2));
+						NewestCos['data']['items'].forEach(async (playlist, i) => {
+							if (playlist['type']['backendValue'] == "AthenaSpray" || playlist['type']['backendValue'] == "AthenaEmoji" || playlist['type']['backendValue'] == "AthenaToy") {
+								var backendtype = "AthenaDance"
+							} else {
+								var backendtype = playlist['type']['backendValue']
+							}
+
+							var test69 = `},
+						"${backendtype}:${playlist['id']}": {
+							"attributes": {
+							  "favorite": false,
+							  "item_seen": ${IsShown},
+							  "level": 1,
+							  "max_level_bonus": 0,
+							  "rnd_sel_cnt": 0, `
+							//TEST.write(test69)
+							if (playlist['variants'] == null) {
+								var test692 = `
+							"variants": [],`
+							} else {
+								var test692 = `
+							  "variants": [
+								  {
+									  "active": "${playlist['variants'][0]['options'][0]['tag']}",
+									  "channel": "${playlist['variants'][0]['channel']}",
+									  "owned": []
+								  }
+							  ],`
+
+								//TEST.write(test692)
+							}
+							// "variants": [],
+							var test693 = `
+							  "xp": 0
+							  },
+							  "templateId": "${backendtype}:${playlist['id']}"`
+							writeStream.write(test69 + test692 + test693);
+						})
+
+						writeStream.write(end)
+						writeStream.end();
+						console.log("\nMaking newest-cosmetics.json")
+						fs.writeFile(path.join(__dirname, "newest-cosmetics.json"), "{}", (err) => {
+
+							console.log("\nMaking The file look better")
+							fs.writeFile(path.join(__dirname, "newest-cosmetics.json"), JSON.stringify(require("./newest-cosmetics.json"), null, 2), 'utf8', (err) => {
+								if (err) {
+									console.log(err)
+								} else {
+									console.log("\nDone Making Profile File")
+									console.log("\nDeleting Temp File")
+									fs.unlinkSync('athena_temp.json', function (err) {
+										if (err) {
+											console.log(err)
+										}
+									})
+								}
+							})
+						})
 					} else {
-						var test692 = `
-						  "variants": [
-							  {
-								  "active": "${playlist['variants'][0]['options'][0]['tag']}",
-								  "channel": "${playlist['variants'][0]['channel']}",
-								  "owned": []
-							  }
-						  ],`
-
-						  TEST.write(test692)
-					}
-					// "variants": [],
-					var test693 = `
-						  "xp": 0
-						  },
-						  "templateId": "${playlist['type']['backendValue']}:${playlist['id']}"`
-					TEST.write(test693);
-				})
-				TEST.write(end);
-				console.log("\nDone Making Profile File")
-				console.log("\nDeleting Temp File")
-				fs.unlinkSync('athena_temp.json', function (err) {
-					if (err) {
-						console.log(err)
+						console.log("Invaild Chose")
 					}
 				})
-				}	
-				})
-					
-				//const TEST692 = JSON.stringify(array)
-				//fs.writeFileSync(path.join(__dirname, "athena.json"), TEST692)
-				//	console.log(array)  
 			})
+			readline.close();
 		})
-		readline.close();
 	} else if (athena == "2") {
 		var authRequest = {
 
@@ -196,18 +171,22 @@ readline.question('', athena => {
 					const id2 = backendtype + ":" + id
 					array.push(`\nid2`);
 				}
-				var stream = fs.createWriteStream("all-cosmetics.txt");
-				var TEST = fs.createWriteStream("all-cosmetics.json");
+				var stream = fs.createWriteStream("all-cosmetics.json");
 				//stream.once('open', function(fd) {
 				//	fs.readFileSync
 				const start = fs.readFileSync("./resources/start.json")
 				const end = fs.readFileSync("./resources/end.json")
-				TEST.write(start);
+				stream.write(start);
 
 				fs.writeFileSync('./athena_temp.json', JSON.stringify(NewHotFixes['data'], null, 2));
 				NewHotFixes['data'].forEach(async (playlist, i) => {
+					if (playlist['type']['backendValue'] == "AthenaSpray" || playlist['type']['backendValue'] == "AthenaEmoji" || playlist['type']['backendValue'] == "AthenaToy") {
+						var backendtype = "AthenaDance"
+					} else {
+						var backendtype = playlist['type']['backendValue']
+					}
 					var test69 = `},
-					"${playlist['type']['backendValue']}:${playlist['id']}": {
+					"${backendtype}:${playlist['id']}": {
 						"attributes": {
 						  "favorite": false,
 						  "item_seen": true,
@@ -217,21 +196,44 @@ readline.question('', athena => {
 						  "variants": [],
 						  "xp": 0
 						},
-						"templateId": "${playlist['type']['backendValue']}:${playlist['id']}"
+						"templateId": "${backendtype}:${playlist['id']}"
 					  `
-					TEST.write(test69);
-					stream.write(playlist['type']['backendValue'] + ":" + playlist['id'] + "\n");
+					stream.write(test69);
+					//stream.write(backendtype + ":" + playlist['id'] + "\n");
 
 
 					//	fs.write(fd, buffer, offset, length, position, callback)
 					//	fs.createWriteStream('test.txt', playlist['type']['backendValue'] + ":" + playlist['id'])
-					console.log(playlist['type']['backendValue'] + ":" + playlist['id'])
+					console.log(backendtype + ":" + playlist['id'])
 				})
-				TEST.write(end);
-				//});
+				stream.write(end);
+				stream.end();
 
-			})
+				console.log("\nMaking all-cosmetics.json")
+				fs.writeFile(path.join(__dirname, "all-cosmetics.json"), "{}", (err) => {
+					if (err) {
+						console.log(err)
+					} else {
+					//console.log("\nMaking The file look better")
+					//fs.writeFile(path.join(__dirname, "all-cosmetics.json"), JSON.stringify(require("./all-cosmetics.json"), null, 2), 'utf8', (err) => {
+					//	if (err) {
+					//		console.log(err)
+					//	} else {
+							console.log("\nDone Making Profile File")
+							console.log("\nDeleting Temp File")
+							fs.unlinkSync('athena_temp.json', function (err) {
+								if (err) {
+									console.log(err)
+								}
+							})
+						//}
+					//})
+				}
+				})
+			}
+			)
 		})
+		readline.close();
 		//console.log("Saved File since its big")
 	} else {
 		console.log("invaild option")
