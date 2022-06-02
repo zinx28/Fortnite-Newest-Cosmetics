@@ -29,7 +29,12 @@ readline.question('', athena => {
 				array = [];
 				for (const index of data2) {
 					const id = index['id']
-					const backendtype = index['type']['backendValue']
+					//const backendtype = index['type']['backendValue']
+					if (index['type']['backendValue'] == "AthenaSpray" || index['type']['backendValue'] == "AthenaEmoji" || index['type']['backendValue'] == "AthenaToy") {
+						var backendtype = "AthenaDance"
+					} else {
+						var backendtype = index['type']['backendValue']
+					}
 					const id2 = backendtype + ":" + id
 					//if(backendtype == "AthenaCharacter"){
 					//console.log(id2)
@@ -66,7 +71,7 @@ readline.question('', athena => {
 					} else {
 						var IsShown = false
 					}
-				//	console.log(athena1)
+					//	console.log(athena1)
 					if (athena1.includes("y") || athena1.includes("n")) {
 						readline1.close();
 						console.log("\n")
@@ -80,10 +85,14 @@ readline.question('', athena => {
 						writeStream.write(start);
 						fs.writeFileSync('./athena_temp.json', JSON.stringify(NewestCos['data']['items'], null, 2));
 						NewestCos['data']['items'].forEach(async (playlist, i) => {
-							//	console.log(playlist['variants'][0]['channel'])
+							if (playlist['type']['backendValue'] == "AthenaSpray" || playlist['type']['backendValue'] == "AthenaEmoji" || playlist['type']['backendValue'] == "AthenaToy") {
+								var backendtype = "AthenaDance"
+							} else {
+								var backendtype = playlist['type']['backendValue']
+							}
 
 							var test69 = `},
-						"${playlist['type']['backendValue']}:${playlist['id']}": {
+						"${backendtype}:${playlist['id']}": {
 							"attributes": {
 							  "favorite": false,
 							  "item_seen": ${IsShown},
@@ -110,29 +119,29 @@ readline.question('', athena => {
 							var test693 = `
 							  "xp": 0
 							  },
-							  "templateId": "${playlist['type']['backendValue']}:${playlist['id']}"`
+							  "templateId": "${backendtype}:${playlist['id']}"`
 							writeStream.write(test69 + test692 + test693);
 						})
-						
+
 						writeStream.write(end)
 						writeStream.end();
 						console.log("\nMaking newest-cosmetics.json")
 						fs.writeFile(path.join(__dirname, "newest-cosmetics.json"), "{}", (err) => {
-						
-						console.log("\nMaking The file look better")
-						fs.writeFile(path.join(__dirname, "newest-cosmetics.json"), JSON.stringify(require("./newest-cosmetics.json"), null, 2), 'utf8', (err) => {
-							if(err){
-								console.log(err)
-							}else{
-								console.log("\nDone Making Profile File")
-								console.log("\nDeleting Temp File")
-								fs.unlinkSync('athena_temp.json', function (err) {
-									if (err) {
-										console.log(err)
-									}
-								})
-							}
-						})
+
+							console.log("\nMaking The file look better")
+							fs.writeFile(path.join(__dirname, "newest-cosmetics.json"), JSON.stringify(require("./newest-cosmetics.json"), null, 2), 'utf8', (err) => {
+								if (err) {
+									console.log(err)
+								} else {
+									console.log("\nDone Making Profile File")
+									console.log("\nDeleting Temp File")
+									fs.unlinkSync('athena_temp.json', function (err) {
+										if (err) {
+											console.log(err)
+										}
+									})
+								}
+							})
 						})
 					} else {
 						console.log("Invaild Chose")
@@ -162,18 +171,22 @@ readline.question('', athena => {
 					const id2 = backendtype + ":" + id
 					array.push(`\nid2`);
 				}
-				var stream = fs.createWriteStream("all-cosmetics.txt");
-				var TEST = fs.createWriteStream("all-cosmetics.json");
+				var stream = fs.createWriteStream("all-cosmetics.json");
 				//stream.once('open', function(fd) {
 				//	fs.readFileSync
 				const start = fs.readFileSync("./resources/start.json")
 				const end = fs.readFileSync("./resources/end.json")
-				TEST.write(start);
+				stream.write(start);
 
 				fs.writeFileSync('./athena_temp.json', JSON.stringify(NewHotFixes['data'], null, 2));
 				NewHotFixes['data'].forEach(async (playlist, i) => {
+					if (playlist['type']['backendValue'] == "AthenaSpray" || playlist['type']['backendValue'] == "AthenaEmoji" || playlist['type']['backendValue'] == "AthenaToy") {
+						var backendtype = "AthenaDance"
+					} else {
+						var backendtype = playlist['type']['backendValue']
+					}
 					var test69 = `},
-					"${playlist['type']['backendValue']}:${playlist['id']}": {
+					"${backendtype}:${playlist['id']}": {
 						"attributes": {
 						  "favorite": false,
 						  "item_seen": true,
@@ -183,21 +196,44 @@ readline.question('', athena => {
 						  "variants": [],
 						  "xp": 0
 						},
-						"templateId": "${playlist['type']['backendValue']}:${playlist['id']}"
+						"templateId": "${backendtype}:${playlist['id']}"
 					  `
-					TEST.write(test69);
-					stream.write(playlist['type']['backendValue'] + ":" + playlist['id'] + "\n");
+					stream.write(test69);
+					//stream.write(backendtype + ":" + playlist['id'] + "\n");
 
 
 					//	fs.write(fd, buffer, offset, length, position, callback)
 					//	fs.createWriteStream('test.txt', playlist['type']['backendValue'] + ":" + playlist['id'])
-					console.log(playlist['type']['backendValue'] + ":" + playlist['id'])
+					console.log(backendtype + ":" + playlist['id'])
 				})
-				TEST.write(end);
-				//});
+				stream.write(end);
+				stream.end();
+
+				console.log("\nMaking all-cosmetics.json")
+				fs.writeFile(path.join(__dirname, "all-cosmetics.json"), "{}", (err) => {
+					if (err) {
+						console.log(err)
+					} else {
+					//console.log("\nMaking The file look better")
+					//fs.writeFile(path.join(__dirname, "all-cosmetics.json"), JSON.stringify(require("./all-cosmetics.json"), null, 2), 'utf8', (err) => {
+					//	if (err) {
+					//		console.log(err)
+					//	} else {
+							console.log("\nDone Making Profile File")
+							console.log("\nDeleting Temp File")
+							fs.unlinkSync('athena_temp.json', function (err) {
+								if (err) {
+									console.log(err)
+								}
+							})
+						//}
+					//})
+				}
+				})
 			}
 			)
 		})
+		readline.close();
 		//console.log("Saved File since its big")
 	} else {
 		console.log("invaild option")
