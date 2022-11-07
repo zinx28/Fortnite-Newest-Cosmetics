@@ -2,7 +2,7 @@
 This will be updated every update<br>
 btw i only update the readme and the code not the .json files
 <br><br>
-Profile == 20.10
+Example of what it will look like:
 
 ```
 AthenaBackpack:BID_A_010_JumbotronS20Male
