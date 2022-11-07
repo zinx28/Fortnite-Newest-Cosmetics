@@ -1,6 +1,5 @@
 # Newest-Cosmetics
-This will be updated every update<br>
-btw i only update the readme and the code not the .json files
+This won't be updated anymore
 <br><br>
 Example of what it will look like:
 
