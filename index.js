@@ -104,14 +104,18 @@ readline.question('', athena => {
 								var test692 = `
 							"variants": [],`
 							} else {
+								ohnu = []
+								for (const index of playlist['variants'][0]['options']) {
+									//console.log(index)
+									ohnu.push({
+										"active": `${index['tag']}`,
+										"channel": `${playlist['variants'][0]['channel']}`,
+										"owned": []
+									})
+								}
+								//console.log(`"variants": ${JSON.stringify(ohnu)}`)
 								var test692 = `
-							  "variants": [
-								  {
-									  "active": "${playlist['variants'][0]['options'][0]['tag']}",
-									  "channel": "${playlist['variants'][0]['channel']}",
-									  "owned": []
-								  }
-							  ],`
+								"variants": ${JSON.stringify(ohnu)},`
 
 								//TEST.write(test692)
 							}
@@ -185,40 +189,52 @@ readline.question('', athena => {
 					} else {
 						var backendtype = playlist['type']['backendValue']
 					}
+
 					var test69 = `},
-					"${backendtype}:${playlist['id']}": {
-						"attributes": {
-						  "favorite": false,
-						  "item_seen": true,
-						  "level": 1,
-						  "max_level_bonus": 0,
-						  "rnd_sel_cnt": 0,
-						  "variants": [],
-						  "xp": 0
-						},
-						"templateId": "${backendtype}:${playlist['id']}"
-					  `
-					stream.write(test69);
-					//stream.write(backendtype + ":" + playlist['id'] + "\n");
+				"${backendtype}:${playlist['id']}": {
+					"attributes": {
+					  "favorite": false,
+					  "item_seen": true,
+					  "level": 1,
+					  "max_level_bonus": 0,
+					  "rnd_sel_cnt": 0, `
+					//TEST.write(test69)
+					if (playlist['variants'] == null) {
+						var test692 = `
+					"variants": [],`
+					} else {
+						ohnu = []
+						for (const index of playlist['variants'][0]['options']) {
+						//	console.log(index)
+							ohnu.push({
+								"active": `${index['tag']}`,
+								"channel": `${playlist['variants'][0]['channel']}`,
+								"owned": []
+							})
+						}
+					//	console.log(`"variants": ${JSON.stringify(ohnu)}`)
+						var test692 = `
+						"variants": ${JSON.stringify(ohnu)},`
 
-
-					//	fs.write(fd, buffer, offset, length, position, callback)
-					//	fs.createWriteStream('test.txt', playlist['type']['backendValue'] + ":" + playlist['id'])
-					console.log(backendtype + ":" + playlist['id'])
+						//TEST.write(test692)
+					}
+					// "variants": [],
+					var test693 = `
+					  "xp": 0
+					  },
+					  "templateId": "${backendtype}:${playlist['id']}"`
+					stream.write(test69 + test692 + test693);
 				})
-				stream.write(end);
+				stream.write(end)
 				stream.end();
-
 				console.log("\nMaking all-cosmetics.json")
 				fs.writeFile(path.join(__dirname, "all-cosmetics.json"), "{}", (err) => {
-					if (err) {
-						console.log(err)
-					} else {
-					//console.log("\nMaking The file look better")
+
+				///	console.log("\nMaking The file look better")
 					//fs.writeFile(path.join(__dirname, "all-cosmetics.json"), JSON.stringify(require("./all-cosmetics.json"), null, 2), 'utf8', (err) => {
-					//	if (err) {
-					//		console.log(err)
-					//	} else {
+						if (err) {
+							console.log(err)
+						} else {
 							console.log("\nDone Making Profile File")
 							console.log("\nDeleting Temp File")
 							fs.unlinkSync('athena_temp.json', function (err) {
@@ -226,10 +242,9 @@ readline.question('', athena => {
 									console.log(err)
 								}
 							})
-						//}
-					//})
-				}
-				})
+						}
+					})
+				//})
 			}
 			)
 		})
